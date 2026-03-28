@@ -81,7 +81,7 @@ const projects = [
   },
   {
     title: "Banking Admin Application",
-    client: "SPCL Infotech",
+    client: "ZS Associates",
     description: "Developed comprehensive registration modules and secure logging features for a banking administration platform, focusing on data integrity and security.",
     tags: ["Java", "Hibernate", "MySQL", "Banking"]
   }
@@ -140,11 +140,11 @@ export default function App() {
                 <a href="#contact" className="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:shadow-xl hover:shadow-blue-500/20 transition-all flex items-center gap-2">
                   Contact Me <ArrowRight size={20} />
                 </a>
-                <button className="px-8 py-4 bg-white border border-slate-200 text-slate-900 rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center gap-2">
-                  Download CV <Download size={20} />
-                </button>
+                <a href="https://www.linkedin.com/in/asifmaner/" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-white border border-slate-200 text-slate-900 rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center gap-2">
+                  LinkedIn Profile <Linkedin size={20} />
+                </a>
                 <div className="flex items-center gap-4 px-2">
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors"><Linkedin size={24} /></a>
+                  <a href="https://www.linkedin.com/in/asifmaner/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors"><Linkedin size={24} /></a>
                   <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors"><Github size={24} /></a>
                 </div>
               </div>
@@ -346,7 +346,7 @@ export default function App() {
               </div>
               <div className="flex flex-col items-start lg:items-end gap-6">
                 <div className="flex gap-4 mb-4">
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/10 rounded-2xl hover:bg-white/20 transition-all">
+                  <a href="https://www.linkedin.com/in/asifmaner/" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/10 rounded-2xl hover:bg-white/20 transition-all">
                     <Linkedin size={24} />
                   </a>
                   <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/10 rounded-2xl hover:bg-white/20 transition-all">
