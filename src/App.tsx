@@ -7,7 +7,11 @@ import {
   ChevronRight,
   ArrowRight,
   Github,
-  Linkedin
+  Linkedin,
+  Download,
+  CheckCircle2,
+  Layers,
+  Zap
 } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -24,21 +28,69 @@ const techLogos = [
   { name: "Jira", logo: "https://cdn.simpleicons.org/jira/0052CC" }
 ];
 
+const skillGroups = [
+  { label: "Backend", skills: ["Java", "Spring Boot", "Hibernate"] },
+  { label: "Architecture", skills: ["Microservices", "REST APIs"] },
+  { label: "Messaging", skills: ["Kafka"] },
+  { label: "Database", skills: ["MySQL"] },
+  { label: "Tools", skills: ["Git", "Jira", "IntelliJ"] }
+];
+
+const coreExpertise = [
+  "Payment Systems",
+  "CMS (Card Management)",
+  "Transaction Processing",
+  "Banking Workflows"
+];
+
 const experiences = [
   {
     role: "Software Developer-Java",
     company: "Euronet Services Pvt Ltd",
     period: "2024 — 2025",
     domain: "Payments & Switching",
-    description: "Developed backend modules for Switch System (REN Product). Focused on Card Management Systems (CMS), transaction processing, and real-time payment flows."
+    bullets: [
+      "Developed and enhanced backend modules for Switch System (REN) in payment domain.",
+      "Worked on Card Management System (CMS) including card issuance & transaction processing.",
+      "Handled real-time transaction authorization and settlement flows for high-volume traffic.",
+      "Performed RCA and production issue resolution in high-availability financial systems.",
+      "Implemented secure data transformation using XML/XSL/JSON for banking formats."
+    ]
   },
   {
     role: "Java Developer",
     company: "SPCL Infotech",
     period: "2021 — 2024",
     domain: "Banking Domain",
-    description: "Maintained Java-based backend for Banking Admin Applications. Built registration modules and implemented secure transaction logging using Spring Boot."
+    bullets: [
+      "Built customer onboarding and registration workflows for banking admin applications.",
+      "Implemented secure transaction logging system to monitor and record all banking activities.",
+      "Optimized MySQL queries and database performance to handle increasing data loads.",
+      "Designed and implemented business logic using Java, Spring Boot, and OOP principles.",
+      "Collaborated on feature enhancements and production support for core banking modules."
+    ]
   }
+];
+
+const projects = [
+  {
+    title: "Payment Switch System",
+    client: "Euronet",
+    description: "Built robust backend modules for transaction processing, integrating CMS and complex settlement systems for real-time financial operations.",
+    tags: ["Java", "Spring Boot", "Kafka", "Payments"]
+  },
+  {
+    title: "Banking Admin Application",
+    client: "SPCL Infotech",
+    description: "Developed comprehensive registration modules and secure logging features for a banking administration platform, focusing on data integrity and security.",
+    tags: ["Java", "Hibernate", "MySQL", "Banking"]
+  }
+];
+
+const achievements = [
+  "Improved system stability by resolving critical production issues through deep Root Cause Analysis (RCA).",
+  "Reduced system downtime by 20% via proactive monitoring and performance optimization of backend modules.",
+  "Successfully delivered 5+ major feature releases in high-pressure financial environments with zero critical bugs."
 ];
 
 export default function App() {
@@ -55,8 +107,9 @@ export default function App() {
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-500">
             <a href="#about" className="hover:text-blue-600 transition-colors">About</a>
+            <a href="#projects" className="hover:text-blue-600 transition-colors">Projects</a>
             <a href="#experience" className="hover:text-blue-600 transition-colors">Experience</a>
-            <a href="#contact" className="px-4 py-2 bg-slate-900 text-white rounded-full hover:bg-blue-600 transition-all">Contact</a>
+            <a href="#contact" className="px-4 py-2 bg-slate-900 text-white rounded-full hover:bg-blue-600 transition-all">Contact Me</a>
           </div>
         </div>
       </nav>
@@ -78,18 +131,21 @@ export default function App() {
                 Available for new opportunities
               </div>
               <h1 className="text-6xl lg:text-8xl font-black tracking-tight leading-[0.9] mb-8">
-                BUILDING <span className="text-blue-600">SCALABLE</span> BACKEND SYSTEMS.
+                BUILDING SCALABLE <span className="text-blue-600">PAYMENT & BANKING</span> SYSTEMS.
               </h1>
               <p className="text-xl text-slate-500 max-w-lg leading-relaxed mb-10">
-                Java Developer specializing in high-performance payment switching and banking architecture. 4+ years of engineering robust financial solutions.
+                Java Developer with 4+ years experience in Payment Switch Systems, CMS, and real-time transaction processing.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a href="#contact" className="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:shadow-xl hover:shadow-blue-500/20 transition-all flex items-center gap-2">
-                  Get in touch <ArrowRight size={20} />
+                  Contact Me <ArrowRight size={20} />
                 </a>
-                <div className="flex items-center gap-4 px-6">
-                  <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Linkedin size={24} /></a>
-                  <a href="#" className="text-slate-400 hover:text-slate-900 transition-colors"><Github size={24} /></a>
+                <button className="px-8 py-4 bg-white border border-slate-200 text-slate-900 rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center gap-2">
+                  Download CV <Download size={20} />
+                </button>
+                <div className="flex items-center gap-4 px-2">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors"><Linkedin size={24} /></a>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors"><Github size={24} /></a>
                 </div>
               </div>
             </motion.div>
@@ -117,31 +173,43 @@ export default function App() {
           </div>
         </section>
 
-        {/* Profile & Skills Section (The requested change) */}
+        {/* Profile & Skills Section */}
         <section id="about" className="max-w-7xl mx-auto px-6 py-24">
           <div className="grid lg:grid-cols-[1fr_2fr] gap-16">
             <div>
               <h2 className="text-sm font-black uppercase tracking-[0.3em] text-slate-400 mb-8">Profile</h2>
               <p className="text-3xl font-light leading-snug">
-                I design and maintain <span className="font-bold">Java-based backend modules</span> for mission-critical financial systems.
+                I design and develop <span className="font-bold">scalable backend systems</span> for mission-critical payment applications.
               </p>
+              
+              <div className="mt-12">
+                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-6">Core Expertise</h3>
+                <div className="space-y-3">
+                  {coreExpertise.map((item) => (
+                    <div key={item} className="flex items-center gap-3 text-slate-600 font-medium">
+                      <CheckCircle2 size={18} className="text-blue-600" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
             <div className="space-y-12">
               <p className="text-lg text-slate-500 leading-relaxed">
-                With over 4 years of experience in the Payments and Switching domain, I've mastered the art of building scalable, secure, and high-availability applications. My expertise spans from Card Management Systems (CMS) to real-time transaction processing.
+                I design and develop scalable backend systems for mission-critical payment applications, handling real-time transaction processing, card management, and secure financial data with high availability. With over 4 years of experience, I've mastered building high-performance systems that drive modern banking.
               </p>
               
               {/* Colorful Skill Logos Below Profile */}
               <div>
-                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-6">Technical Stack</h3>
-                <div className="flex flex-wrap gap-6">
+                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-8">Technical Stack</h3>
+                <div className="flex flex-wrap gap-8 mb-12">
                   {techLogos.map((tech) => (
                     <motion.div
                       key={tech.name}
                       whileHover={{ y: -5 }}
                       className="flex flex-col items-center gap-2 group"
                     >
-                      <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center p-3 border border-slate-100 group-hover:border-blue-200 group-hover:bg-white transition-all shadow-sm group-hover:shadow-md">
+                      <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center p-3 border border-slate-100 group-hover:border-blue-200 group-hover:bg-white transition-all shadow-sm group-hover:shadow-md">
                         <img 
                           src={tech.logo} 
                           alt={tech.name} 
@@ -155,7 +223,57 @@ export default function App() {
                     </motion.div>
                   ))}
                 </div>
+
+                {/* Skill Grouping for ATS/Recruiters */}
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-8 pt-8 border-t border-slate-100">
+                  {skillGroups.map((group) => (
+                    <div key={group.label}>
+                      <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">{group.label}</h4>
+                      <ul className="space-y-1">
+                        {group.skills.map(s => (
+                          <li key={s} className="text-sm font-semibold text-slate-700">{s}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="bg-slate-50 py-24 border-y border-slate-100">
+          <div className="max-w-7xl mx-auto px-6">
+            <h2 className="text-sm font-black uppercase tracking-[0.3em] text-slate-400 mb-16">Key Projects</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {projects.map((project, index) => (
+                <motion.div 
+                  key={index}
+                  whileHover={{ y: -10 }}
+                  className="bg-white p-10 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all"
+                >
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="p-3 bg-blue-50 rounded-xl text-blue-600">
+                      <Layers size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold">{project.title}</h3>
+                      <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">{project.client}</p>
+                    </div>
+                  </div>
+                  <p className="text-slate-500 leading-relaxed mb-8">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="px-3 py-1 bg-slate-50 text-slate-600 text-[10px] font-bold rounded-full border border-slate-100">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -170,9 +288,14 @@ export default function App() {
                   <div className="text-blue-400 text-sm font-bold mb-4 tracking-widest">{exp.period}</div>
                   <h3 className="text-3xl font-bold mb-2 group-hover:text-blue-400 transition-colors">{exp.role}</h3>
                   <div className="text-slate-400 font-medium mb-6">{exp.company}</div>
-                  <p className="text-slate-500 leading-relaxed mb-8">
-                    {exp.description}
-                  </p>
+                  <ul className="space-y-3 mb-8">
+                    {exp.bullets.map((bullet, i) => (
+                      <li key={i} className="text-slate-500 text-sm leading-relaxed flex gap-3">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-700 shrink-0" />
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
                   <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-400">
                     <ChevronRight size={16} className="text-blue-400" />
                     {exp.domain}
@@ -180,6 +303,23 @@ export default function App() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Key Achievements Section */}
+        <section className="max-w-7xl mx-auto px-6 py-24">
+          <h2 className="text-sm font-black uppercase tracking-[0.3em] text-slate-400 mb-16">Key Achievements</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {achievements.map((achievement, index) => (
+              <div key={index} className="flex gap-6 p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:bg-white hover:shadow-lg transition-all">
+                <div className="p-3 bg-blue-600 rounded-2xl text-white h-fit">
+                  <Zap size={24} />
+                </div>
+                <p className="text-slate-600 font-medium leading-relaxed">
+                  {achievement}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -193,7 +333,7 @@ export default function App() {
                   READY TO<br />COLLABORATE?
                 </h2>
                 <p className="text-blue-100 text-xl max-w-md mb-12">
-                  I'm currently looking for new challenges in Java Backend Development. Let's build something exceptional.
+                  Open to opportunities in Java Backend Development, Payment Systems, and Microservices Architecture.
                 </p>
                 <div className="space-y-4">
                   <a href="mailto:asifmaner9902@gmail.com" className="flex items-center gap-4 text-2xl font-bold hover:text-blue-200 transition-colors">
@@ -205,6 +345,14 @@ export default function App() {
                 </div>
               </div>
               <div className="flex flex-col items-start lg:items-end gap-6">
+                <div className="flex gap-4 mb-4">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/10 rounded-2xl hover:bg-white/20 transition-all">
+                    <Linkedin size={24} />
+                  </a>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-4 bg-white/10 rounded-2xl hover:bg-white/20 transition-all">
+                    <Github size={24} />
+                  </a>
+                </div>
                 <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-blue-200">
                   <MapPin size={16} /> Pune, India
                 </div>
