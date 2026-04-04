@@ -416,25 +416,6 @@ const experiences = [
   }
 ];
 
-const education = [
-  {
-    degree: "Bachelor of Engineering (B.E.)",
-    institution: "Shivaji University, Kolhapur",
-    score: "68% (First Class with Distinction)",
-    period: "Graduated"
-  }
-];
-
-const technicalSkills = [
-  { category: "Programming Languages", skills: ["Java (8+)"] },
-  { category: "Frameworks & Architecture", skills: ["Spring Boot", "Hibernate / JPA", "Microservices Architecture"] },
-  { category: "Messaging & Streaming", skills: ["Apache Kafka"] },
-  { category: "Web Technologies", skills: ["RESTful API Development & Integration"] },
-  { category: "Database", skills: ["MySQL"] },
-  { category: "Data Formats & Processing", skills: ["JSON", "XML"] },
-  { category: "Development & Collaboration Tools", skills: ["IntelliJ IDEA", "Spring Tool Suite (STS)", "Git", "GitHub", "Git Bash", "SourceTree", "Jira"] }
-];
-
 const projects = [
   {
     title: "Payment Switch System",
@@ -458,107 +439,6 @@ const achievements = [
   { text: "Successfully delivered 5+ major feature releases in high-pressure financial environments.", icon: Trophy, value: "5+" }
 ];
 
-const ResumeSection = ({ isDark }: { isDark: boolean }) => {
-  return (
-    <section id="resume" className={`py-32 ${isDark ? 'bg-slate-950' : 'bg-white'}`}>
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-sm font-black uppercase tracking-[0.3em] text-blue-600 mb-4">Resume</h2>
-          <p className="text-4xl font-black tracking-tight mb-8">Professional Summary</p>
-          <a 
-            href="https://raw.githubusercontent.com/Assii27/Asif_Portfolio/main/Files/Asif_Maner_Java_Dev-4Y.pdf" 
-            className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
-          >
-            <Download size={20} /> Download PDF Version
-          </a>
-        </div>
-
-        <div className={`p-12 md:p-20 rounded-[3rem] border ${isDark ? 'bg-slate-900 border-slate-800' : 'bg-slate-50 border-slate-100'} shadow-2xl relative overflow-hidden`}>
-          {/* Header */}
-          <div className="border-b border-slate-800/10 pb-12 mb-12">
-            <h3 className="text-5xl font-black mb-4">Asif Maner</h3>
-            <p className="text-xl text-blue-600 font-bold mb-6">Java Developer</p>
-            <div className="flex flex-wrap gap-6 text-sm font-medium text-slate-500">
-              <span className="flex items-center gap-2"><Mail size={16} /> asifmaner9902@gmail.com</span>
-              <span className="flex items-center gap-2"><Phone size={16} /> +91 7972828315</span>
-              <span className="flex items-center gap-2"><MapPin size={16} /> Pune, India</span>
-            </div>
-          </div>
-
-          {/* Profile */}
-          <div className="mb-16">
-            <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Profile</h4>
-            <p className={`text-lg leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-              Java Developer with over 4 years of experience in designing, developing, and maintaining scalable backend applications in the Payments and Switching domain. Possess strong hands-on expertise in Card Management Systems (CMS), transaction processing, card issuance, and secure financial data handling.
-            </p>
-          </div>
-
-          {/* Skills Grid */}
-          <div className="mb-16">
-            <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-8">Technical Skills</h4>
-            <div className="grid md:grid-cols-2 gap-10">
-              {technicalSkills.map((group, i) => (
-                <div key={i}>
-                  <h5 className="font-black text-sm uppercase tracking-tighter mb-4 text-blue-600">{group.category}</h5>
-                  <div className="flex flex-wrap gap-2">
-                    {group.skills.map(skill => (
-                      <span key={skill} className={`px-3 py-1 rounded-lg text-xs font-bold ${isDark ? 'bg-slate-800 text-slate-400' : 'bg-white text-slate-600'} border ${isDark ? 'border-slate-700' : 'border-slate-200'}`}>
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Experience */}
-          <div className="mb-16">
-            <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-10">Professional Experience</h4>
-            <div className="space-y-16">
-              {experiences.map((exp, i) => (
-                <div key={i} className="relative pl-8 border-l-2 border-blue-600/20">
-                  <div className="absolute top-0 left-[-9px] w-4 h-4 rounded-full bg-blue-600" />
-                  <div className="flex flex-wrap justify-between items-start gap-4 mb-4">
-                    <div>
-                      <h5 className="text-2xl font-black">{exp.role}</h5>
-                      <p className="text-blue-600 font-bold">{exp.company}</p>
-                    </div>
-                    <span className="px-4 py-1 bg-slate-800 text-slate-400 rounded-full text-[10px] font-black uppercase tracking-widest">{exp.period}</span>
-                  </div>
-                  <ul className="space-y-3">
-                    {exp.bullets.map((bullet, j) => (
-                      <li key={j} className={`text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-500'} flex gap-3`}>
-                        <span className="text-blue-600 font-black">•</span>
-                        <span dangerouslySetInnerHTML={{ __html: bullet }} />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Education */}
-          <div>
-            <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-8">Education</h4>
-            {education.map((edu, i) => (
-              <div key={i} className={`p-8 rounded-2xl ${isDark ? 'bg-slate-800/50' : 'bg-white'} border ${isDark ? 'border-slate-700' : 'border-slate-100'}`}>
-                <h5 className="text-xl font-black mb-1">{edu.degree}</h5>
-                <p className="text-blue-600 font-bold mb-2">{edu.institution}</p>
-                <div className="flex justify-between text-sm font-medium text-slate-500">
-                  <span>{edu.score}</span>
-                  <span>{edu.period}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 export default function App() {
   const [isDark, setIsDark] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -575,8 +455,13 @@ export default function App() {
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? (isDark ? 'bg-slate-950/80 border-slate-800' : 'bg-white/80 border-slate-100') : 'bg-transparent border-transparent'} backdrop-blur-md border-b`}>
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="font-bold text-xl tracking-tighter flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
-              <span className="text-base font-black">AM</span>
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/20 overflow-hidden">
+              <img 
+                src="https://raw.githubusercontent.com/Assii27/Asif_Portfolio/main/Files/java.png" 
+                alt="Logo" 
+                className="w-full h-full object-contain p-1"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <span className={isDark ? 'text-white' : 'text-slate-900'}>ASIF MANER</span>
           </div>
@@ -584,7 +469,6 @@ export default function App() {
             <a href="#about" className={`${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-500 hover:text-blue-600'} transition-colors`}>About</a>
             <a href="#projects" className={`${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-500 hover:text-blue-600'} transition-colors`}>Projects</a>
             <a href="#experience" className={`${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-500 hover:text-blue-600'} transition-colors`}>Experience</a>
-            <a href="#resume" className={`${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-500 hover:text-blue-600'} transition-colors`}>Resume</a>
             <button 
               onClick={() => setIsDark(!isDark)}
               className={`p-2 rounded-full ${isDark ? 'bg-slate-800 text-yellow-400' : 'bg-slate-100 text-slate-600'} hover:scale-110 transition-all`}
@@ -627,7 +511,7 @@ export default function App() {
                 <a href="https://www.linkedin.com/in/asifmaner/" target="_blank" rel="noopener noreferrer" className={`px-8 py-4 ${isDark ? 'bg-slate-800 text-white' : 'bg-white text-slate-900'} border ${isDark ? 'border-slate-700' : 'border-slate-200'} rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center gap-2`}>
                   LinkedIn <Linkedin size={20} />
                 </a>
-                <a href="https://raw.githubusercontent.com/Assii27/Asif_Portfolio/main/Files/Asif_Maner_Java_Dev-4Y.pdf" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-bold hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30 transition-all flex items-center gap-2">
+                <a href="https://raw.githubusercontent.com/Assii27/Asif_Portfolio/main/Files/Asif_Maner_Java_Dev-4Y.pdf" download="Asif_Maner_Resume.pdf" className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-bold hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30 transition-all flex items-center gap-2">
                   <Download size={20} /> Download Resume
                 </a>
                 <div className="flex items-center gap-4 px-2">
@@ -966,8 +850,6 @@ export default function App() {
           </div>
         </section>
 
-        <ResumeSection isDark={isDark} />
-
         {/* Contact Section */}
         <section id="contact" className="max-w-7xl mx-auto px-6 py-32">
           <div className="bg-gradient-to-br from-blue-600 to-purple-700 rounded-[4rem] p-12 lg:p-24 text-white relative overflow-hidden shadow-2xl shadow-blue-500/20">
@@ -1002,7 +884,7 @@ export default function App() {
                   <a href="https://github.com/Assii27" target="_blank" rel="noopener noreferrer" className="p-6 bg-white/10 rounded-3xl hover:bg-white/20 hover:-translate-y-2 transition-all shadow-xl">
                     <Github size={32} />
                   </a>
-                  <a href="https://raw.githubusercontent.com/Assii27/Asif_Portfolio/main/Files/Asif_Maner_Java_Dev-4Y.pdf" target="_blank" rel="noopener noreferrer" className="p-6 bg-white/10 rounded-3xl hover:bg-white/20 hover:-translate-y-2 transition-all shadow-xl">
+                  <a href="https://raw.githubusercontent.com/Assii27/Asif_Portfolio/main/Files/Asif_Maner_Java_Dev-4Y.pdf" download="Asif_Maner_Resume.pdf" className="p-6 bg-white/10 rounded-3xl hover:bg-white/20 hover:-translate-y-2 transition-all shadow-xl">
                     <FileText size={32} />
                   </a>
                 </div>
