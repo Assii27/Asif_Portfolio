@@ -502,7 +502,7 @@ export default function App() {
                 <a href="https://www.linkedin.com/in/asifmaner/" target="_blank" rel="noopener noreferrer" className={`px-8 py-4 ${isDark ? 'bg-slate-800 text-white' : 'bg-white text-slate-900'} border ${isDark ? 'border-slate-700' : 'border-slate-200'} rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center gap-2`}>
                   LinkedIn <Linkedin size={20} />
                 </a>
-                <a href="https://drive.google.com/file/d/1F8ZsR0bU_xBHUjK-HQh_LPBTVnF1PuI3/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-bold hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30 transition-all flex items-center gap-2">
+                <a href="https://drive.google.com/file/d/1wCZAxDWB96bzvsvWwx7XTR8nQJkIhw6V/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-bold hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30 transition-all flex items-center gap-2">
                   <Download size={20} /> Download Resume
                 </a>
                 <div className="flex items-center gap-4 px-2">
@@ -875,7 +875,7 @@ export default function App() {
                   <a href="https://github.com/Assii27" target="_blank" rel="noopener noreferrer" className="p-6 bg-white/10 rounded-3xl hover:bg-white/20 hover:-translate-y-2 transition-all shadow-xl">
                     <Github size={32} />
                   </a>
-                  <a href="https://drive.google.com/file/d/1F8ZsR0bU_xBHUjK-HQh_LPBTVnF1PuI3/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="p-6 bg-white/10 rounded-3xl hover:bg-white/20 hover:-translate-y-2 transition-all shadow-xl">
+                  <a href="https://drive.google.com/file/d/1wCZAxDWB96bzvsvWwx7XTR8nQJkIhw6V/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="p-6 bg-white/10 rounded-3xl hover:bg-white/20 hover:-translate-y-2 transition-all shadow-xl">
                     <FileText size={32} />
                   </a>
                 </div>
