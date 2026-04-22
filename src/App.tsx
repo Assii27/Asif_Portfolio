@@ -325,21 +325,21 @@ const TypewriterCode = () => {
   );
 };
 
-const Marquee = ({ items }: { items: { name: string; logo: string }[] }) => {
+const Marquee = ({ items, isDark }: { items: { name: string; logo: string }[], isDark: boolean }) => {
   return (
-    <div className="relative flex overflow-x-hidden bg-white py-6 border-b border-slate-100">
+    <div className={`relative flex overflow-x-hidden ${isDark ? 'bg-slate-900' : 'bg-white'} py-6 border-b ${isDark ? 'border-slate-800' : 'border-slate-100'}`}>
       <div className="animate-marquee whitespace-nowrap flex items-center">
         {items.concat(items).map((item, i) => (
           <div key={i} className="flex items-center gap-2 mx-8">
-            <div className="w-8 h-8 bg-slate-50 rounded-lg flex items-center justify-center p-1.5 border border-slate-100">
+            <div className={`w-8 h-8 ${isDark ? 'bg-slate-800' : 'bg-slate-50'} rounded-lg flex items-center justify-center p-1.5 border ${isDark ? 'border-slate-700' : 'border-slate-100'}`}>
               <img 
                 src={item.logo} 
                 alt={item.name} 
-                className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all"
+                className="w-full h-full object-contain transition-all"
                 referrerPolicy="no-referrer"
               />
             </div>
-            <span className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em]">{item.name}</span>
+            <span className={`text-[10px] font-black ${isDark ? 'text-slate-400' : 'text-black'} uppercase tracking-[0.2em]`}>{item.name}</span>
           </div>
         ))}
       </div>
@@ -347,15 +347,15 @@ const Marquee = ({ items }: { items: { name: string; logo: string }[] }) => {
       <div className="absolute top-0 animate-marquee2 whitespace-nowrap flex items-center h-full">
         {items.concat(items).map((item, i) => (
           <div key={i} className="flex items-center gap-2 mx-8">
-            <div className="w-8 h-8 bg-slate-50 rounded-lg flex items-center justify-center p-1.5 border border-slate-100">
+            <div className={`w-8 h-8 ${isDark ? 'bg-slate-800' : 'bg-slate-50'} rounded-lg flex items-center justify-center p-1.5 border ${isDark ? 'border-slate-700' : 'border-slate-100'}`}>
               <img 
                 src={item.logo} 
                 alt={item.name} 
-                className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all"
+                className="w-full h-full object-contain transition-all"
                 referrerPolicy="no-referrer"
               />
             </div>
-            <span className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em]">{item.name}</span>
+            <span className={`text-[10px] font-black ${isDark ? 'text-slate-400' : 'text-black'} uppercase tracking-[0.2em]`}>{item.name}</span>
           </div>
         ))}
       </div>
@@ -564,10 +564,14 @@ export default function App() {
               <div className="space-y-6">
                 <h2 className="text-sm font-black uppercase tracking-[0.3em] text-blue-600">Profile</h2>
                 <p className="text-4xl lg:text-5xl font-black leading-tight tracking-tight">
-                  I build <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">reliable</span> payment switches and core banking systems for high-volume transactions.
+                  I build <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">fast and reliable</span> payment systems that handle transactions smoothly.
                 </p>
                 <p className={`text-xl ${isDark ? 'text-slate-400' : 'text-slate-500'} leading-relaxed`}>
-                  With over 4 years of experience, I've mastered the art of building high-performance systems that drive modern banking. Specialized in Java, Spring Boot, and Microservices architecture with a focus on low-latency transaction processing.
+                  With 4+ years of experience, I develop high-performance backend systems for banking and fintech. 
+                  I specialize in <span className={`${isDark ? 'text-white' : 'text-slate-900'} font-bold underline decoration-blue-500/30 decoration-4 underline-offset-4`}>Java</span>, 
+                  <span className={`${isDark ? 'text-white' : 'text-slate-900'} font-bold underline decoration-blue-500/30 decoration-4 underline-offset-4`}> Spring Boot</span>, and 
+                  <span className={`${isDark ? 'text-white' : 'text-slate-900'} font-bold underline decoration-blue-500/30 decoration-4 underline-offset-4`}> Microservices</span>, 
+                  focusing on speed, scalability, and real-time transaction processing.
                 </p>
               </div>
 
@@ -631,11 +635,11 @@ export default function App() {
                           <img 
                             src={tech.logo} 
                             alt={tech.name} 
-                            className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all"
+                            className="w-full h-full object-contain transition-all"
                             referrerPolicy="no-referrer"
                           />
                         </div>
-                        <span className="text-[10px] font-bold text-slate-400 group-hover:text-blue-600 transition-colors uppercase tracking-widest">
+                        <span className={`text-[10px] font-bold ${isDark ? 'text-slate-400 group-hover:text-blue-400' : 'text-black group-hover:text-blue-600'} transition-colors uppercase tracking-widest`}>
                           {tech.name}
                         </span>
                       </motion.div>
@@ -713,14 +717,11 @@ export default function App() {
         {/* Projects Section */}
         <section id="projects" className={`py-32 ${isDark ? 'bg-slate-900/30' : 'bg-slate-50'} border-y ${isDark ? 'border-slate-800' : 'border-slate-100'}`}>
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20 text-center md:text-left">
               <div>
                 <h2 className="text-sm font-black uppercase tracking-[0.3em] text-blue-600 mb-4">Key Projects</h2>
                 <p className="text-4xl font-black tracking-tight">Real-world impact, delivered.</p>
               </div>
-              <a href="https://github.com/Assii27" target="_blank" rel="noopener noreferrer" className="text-sm font-bold uppercase tracking-widest flex items-center gap-2 hover:text-blue-600 transition-colors">
-                View All on GitHub <ArrowRight size={16} />
-              </a>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12">
@@ -788,7 +789,7 @@ export default function App() {
             <h2 className="text-[10px] font-black uppercase tracking-[0.5em] text-blue-600">Core Technologies & Skills</h2>
           </div>
           <div className={`rounded-3xl border ${isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-white border-slate-100'} overflow-hidden shadow-sm`}>
-            <Marquee items={techLogos} />
+            <Marquee items={techLogos} isDark={isDark} />
           </div>
         </div>
 
